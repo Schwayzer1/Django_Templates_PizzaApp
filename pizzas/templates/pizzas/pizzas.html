@@ -17,9 +17,20 @@
                       <p class="card-text">
                         <ul>
                             <li>{{pizza.toppings.all | join:", "}}</li>
-                            <li><strong>{{pizza.price}}</strong></li>
+                            <li><strong>{{pizza.price}}$</strong></li>
                         </ul>
                         </p>
+                        
+                        {% if user.is_authenticated %}
+                    
+                          <a href="{% url 'order' pizza.id %}">
+                            <button class="btn btn-warning ms-1">
+                              Order
+                            </button>
+                          </a>                          
+                          
+                        {% endif %}
+                          
                     </div>
                   </div>
                 </div>
